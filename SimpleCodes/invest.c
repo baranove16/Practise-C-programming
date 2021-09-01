@@ -1,5 +1,7 @@
 #include<stdio.h>
 
+\\investment calculator that prints results in a table
+
 double start_balance(double starts);
 double interest_rate(double rates);
 double end_balance(double ends);
@@ -17,7 +19,8 @@ int main(){
     double ends;
     
     
-
+    \\user will be asked to input initial amount 
+        \\if initial amount is negative, user will be asked to enter intial amount again
     do 
     {
         printf("Enter initial investment amount: ");
@@ -25,7 +28,7 @@ int main(){
         if (initial < 0) printf("Initial investment cannot be negative.\n");
 
     } while (initial < 0);
-
+    
      do
     {
         printf("Enter total years: ");
@@ -33,7 +36,9 @@ int main(){
         if (year <= 0) printf("Years must be greater than zero.\n ");
 
     } while (year <= 0);
-
+    
+    \\user asked to input return rate in perentage
+        \\if negative input, user will be asked to input return rate again
     do
     {
         printf("Enter return rate: ");
@@ -43,6 +48,7 @@ int main(){
         
     } while (rate < 0);
 
+    \\user asked to input additional contributions per year
     do
     {
         printf("Enter additional contribution each year: ");
@@ -52,19 +58,21 @@ int main(){
     } while (add < 0);
 
    
-
+   
     printf("\n\n");
     printf("Year      Start              Interest            Balance\n");
     printf("************************************************************\n");
 
-    
+    \\calculates the interest and end balance
+        \\used for the first year, where no additional contributions are added
     rates = initial * (rate/ 100);
     starts = initial;
     ends = initial + rates;
 
     
     
-    
+    \\using for loop to print out the whole table
+        \\additional contributions are included after the first year
     for (start = 1; start <= year; start++)
     {
         
